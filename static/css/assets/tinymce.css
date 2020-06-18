@@ -1,0 +1,44 @@
+
+.highlight{
+            color: #2f2f2f;
+            font-size: 16px;
+            font-weight: 200;
+            padding: 1.1em;
+            list-style: decimal;
+             margin: 0 0 0 2em;
+}
+
+.highlight li:last-child {
+  font-size: 0.75em;
+  border-bottom: 1px dashed red;
+}
+
+
+.figure-left {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 0px solid red;
+}
+
+.figure-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.figure-right {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: 0px solid red;
+}
+
+.caption {
+  display: block;
+  text-align: center;
+  margin-top: -15px;
+  width: 100%;
+  font-size:12px;
+}

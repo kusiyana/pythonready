@@ -1,0 +1,394 @@
+{% extends "main/base/base.html" %}
+{% load main %}
+<!DOCTYPE html>
+{% load static %}
+{% block main_body %}
+
+
+<!--========={ Courses Apply Wrapper }========-->
+<section class="courses_apply_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+				<h5>&nbsp;</h5>
+                <div class="courses_apply">
+                    <div class="teacher_info">
+                        <div class="teacher_pro">
+                            <img src="{% static 'images/team/team-07.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <ul>
+                            <li>Teacher: <a href="" title="">Hayden Eastwood</a></li>
+                            <li>Course: <a href="" title="">Python fundamentals</a></li>
+                        </ul>
+                    </div>
+                    <div class="apply_btn">
+                        <a href="/view-lecture/1" title="">Start Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Courses Apply Wrapper -->
+
+
+<!--========={ Courses Details Wrapper }========-->
+<section class="courses_details_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                <div class="row">
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <div class="courses_info_content">
+                            <div class="corses_banner">
+                                <img src="{% static 'images/courses/courses-hayden.jpg' %}" alt="" class="img-fluid">
+                            </div>
+                            <div class="courses_tab_wrapper">
+                                <div class="courses_details_nav_tabs">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item"><a class="nav-link active" href="#information" role="tab" data-toggle="tab"><i class="flaticon-info-sign"></i>Information</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#curricularm" role="tab" data-toggle="tab"><i class="flaticon-portfolio"></i>Curriculum</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#instructor" role="tab" data-toggle="tab"><i class="flaticon-man-user"></i>Tutor</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#reviews" role="tab" data-toggle="tab"><i class="flaticon-star"></i>Reviews</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Tab panes -->
+                                <div class="tab_contents tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active show" id="information">
+                                        {% autoescape off %} {{course.description}} {% endautoescape %}
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="curricularm">
+                                        <div class="curriculum-text-box">
+                                            <div class="curriculum-section">
+                                                <div class="panel-group" id="accordion">
+                                                  {% for name, lectures in section_lectures.items %}
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title click">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}" class="{% if forloop.counter != 1%}collapsed{% endif %}">
+                                                                {{name}}<span>0/ {{  lecture_counts | dict_key:name }}</span></a>
+                                                            </h4>
+
+                                                        </div>
+                                                        <div id="collapse{{forloop.counter}}" class="panel-collapse collapse {% if forloop.counter == 1%}in show{% endif %} ">
+                                                            <div class="panel-body">
+                                                              {% for lecture in lectures %}
+                                                                <div class="curriculum-single">
+                                                                    <div class="lecture">
+                                                                        <span><i class="fa fa-file-text-o"></i>{{lecture.name}}</span>
+                                                                    </div>
+                                                                    <a href="/view-lecture/{{lecture.id}}">View</a>
+                                                                </div>
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+
+
+                                                </div> <!-- .curriculum-section-text END -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="instructor">
+                                        <div class="courses_teacher">
+                                            <div class="tutor_signle">
+                                                <div class="tutor_pro">
+                                                    <a href="" title=""><img src="{% static 'images/team/team-07.jpg' %}" alt="" class="img-fluid"></a>
+                                                </div>
+                                                <div class="teachers_name">
+                                                    <h5><a href="" title="">Hayden Eastwood</a></h5>
+                                                    <span>Python enthusiast</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="reviews">
+                                        <!-- Blog Comment Wrappper-->
+                                        <div class="review-content">
+                                            <div class="five-star-rating">
+                                                <div class="rating_box_count">
+                                                    <span class="five">5</span>
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="flaticon-star-1"></i></li>
+                                                        <li><i class="flaticon-star-1"></i></li>
+                                                        <li><i class="flaticon-star-1"></i></li>
+                                                        <li><i class="flaticon-star-1"></i></li>
+                                                        <li><i class="flaticon-star-1"></i></li>
+                                                    </ul>
+                                                    <span>8 Ratings</span>
+                                                </div>
+                                            </div>
+                                            <div class="rating-box">
+                                                <div class="detailed-rating">
+                                                    <div class="stars">
+                                                        <div class="key">5 stars</div>
+                                                        <div class="bar">
+                                                            <div class="full_bar">
+                                                                 <span style="width: 100%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="value">8</div>
+                                                    </div>
+
+                                                    <div class="stars">
+                                                        <div class="key">4 stars</div>
+                                                        <div class="bar">
+                                                            <div class="full_bar">
+                                                                 <span style="width: 0%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="value">0</div>
+                                                    </div>
+
+                                                    <div class="stars">
+                                                        <div class="key">3 stars</div>
+                                                        <div class="bar">
+                                                            <div class="full_bar">
+                                                                 <span style="width: 0%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="value">0</div>
+                                                    </div>
+                                                    <div class="stars">
+                                                        <div class="key">2 stars</div>
+                                                        <div class="bar">
+                                                            <div class="full_bar">
+                                                                 <span style="width: 0%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="value">0</div>
+                                                    </div>
+                                                    <div class="stars">
+                                                        <div class="key">1 star</div>
+                                                        <div class="bar">
+                                                            <div class="full_bar">
+                                                                <span style="width: 0%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="value">0</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="commnet-wrapper">
+                                             <div class="comment-list-items">
+                                                <div class="comment-list-wrapper">
+                                                    <div class="comment-list">
+                                                        <div class="commnet_img">
+                                                            <img src="{% static 'images/team/team-02.jpg' %}" alt="member img" class="img-fluid">
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            <div class="author_info d-flex justify-content-between">
+                                                                <a href="" class="author_name">Adam Smith</a>
+                                                                <span>2 Days Ago</span>
+                                                            </div>
+                                                            <div class="rating">
+                                                                <ul class="rating d-flex justify-content-start">
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <p>You need to be sure there isn't anything embarrassing hidden in the repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-list-wrapper">
+                                                    <div class="comment-list">
+                                                        <div class="commnet_img">
+                                                            <img src="{% static 'images/team/team-04.jpg' %}" alt="member img" class="img-fluid">
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            <div class="author_info d-flex justify-content-between">
+                                                                <a href="" class="author_name">David Martin</a>
+                                                                <span>2 Days Ago</span>
+                                                            </div>
+                                                            <div class="rating">
+                                                                <ul class="rating d-flex justify-content-start">
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-1"></i></li>
+                                                                    <li><i class="flaticon-star-shape-with-half-full"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <p>you need to be sure there isn't anything embarrassing hidden in the repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-12">
+                        <div class="recent_courses">
+                            <h2>Other Courses</h2>
+                            <div class="event_signle_3">
+                                <div class="corses_banner">
+                                    <a href="" title=""><img src="{% static 'images/courses/courses-1.jpg' %}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_title">
+                                    <h4><a href="" title="">AI fundamentals</a></h4>
+                                    <p>Coming soon</p>
+                                </div>
+                            </div>
+                            <div class="event_signle_3">
+                                <div class="corses_banner">
+                                    <a href="" title=""><img src="{% static 'images/courses/courses-2.jpg' %}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_title">
+                                    <h4><a href="" title="">Django web development</a></h4>
+                                    <p>Coming soon</p>
+                                </div>
+                            </div>
+                            <div class="event_signle_3">
+                                <div class="corses_banner">
+                                    <a href="" title=""><img src="{% static 'images/courses/courses-3.jpg' %}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_title">
+                                    <h4><a href="" title="">Scientific computing</a></h4>
+                                    <p>Coming soon</p>
+                                </div>
+                            </div>
+                            <div class="event_signle_3">
+                                <div class="corses_banner">
+                                    <a href="" title=""><img src="{% static 'images/courses/courses-4.jpg' %}" alt="" class="img-fluid"></a>
+                                </div>
+                                <div class="event_title">
+                                    <h4><a href="" title="">Internet of Things</a></h4>
+                                    <p>Coming soon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Courses Details Wrapper -->
+
+
+<!--========={ Popular Courses }========
+<section class="popular_cources">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Similar Courses</h2>
+                <div id="latest_blog_carousel" class="owl-carousel">
+                     <div class="review_singel wow fadeIn" data-wow-duration="2s" data-wow-delay=".1s">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-1.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>User Interface design</h3>
+                            <span>Teacher- Jonson Park</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$250</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review_singel wow fadeIn" data-wow-duration="2s" data-wow-delay=".3s">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-2.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>Micro Web design</h3>
+                            <span>Teacher- Adam Karnel</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="review_singel wow fadeIn" data-wow-duration="2s" data-wow-delay=".5s">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-3.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>Javascript Development</h3>
+                            <span>Teacher- David Martin</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$300</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review_singel">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-1.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>Wordpress Development</h3>
+                            <span>Teacher- Willian Kane</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$230</span>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="review_singel">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-2.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>Deep Photography</h3>
+                            <span>Teacher- Jonathon Smith</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$300</span>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="review_singel">
+                        <div class="blog-img">
+                            <img src="{% static 'images/blog/blog3-3.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="blog-title">
+                            <div class="shape"></div>
+                            <h3>Electrical Engineering</h3>
+                            <span>Teacher- Bankimun Chuchu</span>
+                            <p>Lorem ipsum dolor consectetur sed do tempor incididunt ut laboris ut aliquip ex commodo conquat.</p>
+                            <div class="cources_btn d-flex justify-content-between">
+                               <a href="" title="" class="apply_btn">Apply Now<i class="flaticon-angle-arrow-pointing-to-right"></i></a>
+                                <span>$280</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> End Popular Courses -->
+
+<!-- ./ End Our Sponsor -->{% endblock %}

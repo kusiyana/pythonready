@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+{% include 'main/base/includes/head.html' %}
+<body class="courses_details_body">
+<!-- Preloader -->
+<!--<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+-->
+
+  <!-- Navigation -->
+{% include 'main/base/includes/navigation.html' %}
+  <!-- Close Navigation -->
+
+  <!-- Slider -->
+  <!-- Close Slider -->
+
+
+
+{% block main_body %}{% endblock %}
+
+
+
+<!--========={ Footer }========-->
+{% include 'main/base/includes/footer.html' %}
+<!-- ./ End Footer -->
+
+ <!--============= { Ccroll Top} ===========-->
+<section id="scroll-top" class="scroll-top">
+    <h2>&nbsp;</h2>
+    <div class="to-top pos-rtive">
+        <a href="#"><i class = "flaticon-up-arrow"></i></a>
+    </div>
+</section>
+
+{% include 'main/base/includes/js.html' %}
+</body>
+</html>
