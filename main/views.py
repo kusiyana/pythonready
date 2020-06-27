@@ -33,6 +33,7 @@ def view_lecture(request, lecture_number=""):
         lecture = Lecture.objects.get(order=lecture_number)
     except:
         return redirect('/')
+    lecture.poster = "".join([lecture.video_link[:-3], 'png'])
     context_dict = {
         'page_title': "View lecture"
         ,'lecture': lecture

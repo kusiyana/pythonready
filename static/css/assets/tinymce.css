@@ -1,7 +1,7 @@
 
 .highlight{
-            color: #2f2f2f;
-            font-size: 16px;
+            color: #9b9b9c;
+            font-size: 17px;
             font-weight: 200;
             padding: 1.1em;
             list-style: decimal;
@@ -41,4 +41,43 @@
   margin-top: -15px;
   width: 100%;
   font-size:12px;
+}
+
+
+
+.output {
+  background-color: black;
+
+
+  margin: 0;
+  overflow: hidden;
+  padding-top: 0.4rem;
+  padding-left: 0.8rem;
+  padding-bottom: 0.8rem;
+  color: white;
+  font: 1.1rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #C8C8C8;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(black, 0.15),
+      rgba(black, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+  }
+}
+::selection {
+  background: #0080FF;
+  text-shadow: none;
+}
+pre {
+  margin: 0;
 }

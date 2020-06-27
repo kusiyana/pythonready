@@ -10,6 +10,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+
                         <div class="blog_post" style="padding-left: 100px; padding-right: 100px;">
 
                            <h3>{{lecture.name}}</h3>
@@ -17,13 +18,50 @@
                              <span>By- <a href="" title="">Hayden Eastwood</a></span>
                              <span>Python Fundamentals</span>
                             </div>
+
+                            <div style="margin-top:0px;">
+                              <div class="col-md-12">
+                                <a href="/view-lecture/{{previous_lecture}}" class="btn btn-danger btn-lg" style="margin-left; float: left;">Back</a>
+                              </div>
+                              <div class="col-md-12">
+                                <a href="/view-lecture/{{next_lecture}}" class="btn btn-danger btn-lg" role="" style="margin-right; float:right;">Next</a>
+                              </div>
+                            </div>
+                            <br><br><br>
+                            {% if lecture.video_link %}
+                            <h4>Video</h4>
+
+                            <video
+                              style="margin: 0 auto;"
+                               id="my-video"
+                               class="video-js"
+                               controls
+                               preload="auto"
+                               width="800"
+
+                               poster="{% static 'video/'%}poster_{{lecture.poster}}"
+                               data-setup="{}">
+                               <source src="{% static 'video/'%}{{lecture.video_link}}" type="video/mp4" />
+                               <source src="MY_VIDEO.webm" type="video/webm" />
+                               <p class="vjs-no-js">
+                                 To view this video please enable JavaScript, and consider upgrading to a
+                                 web browser that
+                                 <a href="https://videojs.com/html5-video-support/" target="_blank"
+                                   >supports HTML5 video</a>
+                               </p>
+                             </video>
+                             <br><br>
+                             {% endif %}
+                          <h4>Course notes</h4>
                           {% autoescape off %}
-                          <figure class="image">
                           <div class="line-numbers">
                             {{lecture.content}}
                           </div>
-                        </figure>
+
                           {% endautoescape %}
+
+<!--<iframe src="http://brython.info/console.html" width="660" height="330" scrolling="no"></iframe>-->
+                           <script src="https://vjs.zencdn.net/7.8.2/video.js"></script>
 
                         </div>
                     </div>
@@ -34,5 +72,8 @@
     </div>
   </section>
 <!--========={ End Lecture }========-->
+
 {% include 'main/base/includes/navigate_lectures.html' %}
+
+
 {% endblock %}

@@ -47,7 +47,7 @@
                                 <div class="courses_details_nav_tabs">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item"><a class="nav-link active" href="#information" role="tab" data-toggle="tab"><i class="flaticon-info-sign"></i>Information</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#curricularm" role="tab" data-toggle="tab"><i class="flaticon-portfolio"></i>Curriculum</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#curriculum" role="tab" data-toggle="tab"><i class="flaticon-portfolio"></i>Curriculum</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#instructor" role="tab" data-toggle="tab"><i class="flaticon-man-user"></i>Tutor</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#reviews" role="tab" data-toggle="tab"><i class="flaticon-star"></i>Reviews</a></li>
                                     </ul>
@@ -58,7 +58,7 @@
                                     <div role="tabpanel" class="tab-pane fade in active show" id="information">
                                         {% autoescape off %} {{course.description}} {% endautoescape %}
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="curricularm">
+                                    <div role="tabpanel" class="tab-pane fade" id="curriculum">
                                         <div class="curriculum-text-box">
                                             <div class="curriculum-section">
                                                 <div class="panel-group" id="accordion">
@@ -78,7 +78,7 @@
                                                                     <div class="lecture">
                                                                         <span><i class="fa fa-file-text-o"></i>{{lecture.name}}</span>
                                                                     </div>
-                                                                    <a href="/view-lecture/{{lecture.id}}">View</a>
+                                                                    <a href="/view-lecture/{{lecture.order}}">View</a>
                                                                 </div>
                                                                 {% endfor %}
                                                             </div>

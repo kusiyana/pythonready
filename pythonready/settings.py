@@ -169,7 +169,7 @@ APPEND_SLASH=False
 
 TINYMCE_DEFAULT_CONFIG = {
     'images_upload_base_path': '/static/images/'
-    ,'image_prepend_url': "https://www.example.com/images/"
+    ,'image_prepend_url': "/static/images/"
     ,'image_uploadtab': True
     ,'file_picker_types': 'file image media'
     ,'automatic_uploads': True
@@ -177,6 +177,11 @@ TINYMCE_DEFAULT_CONFIG = {
     ,'height': 700
     ,'plugins': [ 'codesample', 'lists', "advlist", 'code', 'image']
     ,'codesample_global_prismjs': True
+    ,'codesample_languages': [
+    { 'text': 'HTML/XML', 'value': 'markup' },
+    { 'text': 'Python', 'value': 'python' },
+    { 'text': 'Bash', 'value': 'bash' },
+  ]
     ,'toolbar': 'formatselect | undo redo | styleselect | bold italic | link image | lists | codesample | numlist | code | cut paste'
     ,'formats': {
         'h1': { 'block': 'h1', 'classes': 'heading' },
@@ -201,6 +206,10 @@ TINYMCE_DEFAULT_CONFIG = {
     ,{'title': 'caption'
         ,'selector': 'p'
         ,'classes': 'caption'
+    }
+    ,{'title': 'output'
+        ,'selector': 'p'
+        ,'classes': 'output'
     }
     ]
 
