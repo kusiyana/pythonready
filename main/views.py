@@ -36,6 +36,7 @@ def view_lecture(request, lecture_number=""):
     lecture.poster = "".join([lecture.video_link[:-3], 'png'])
     context_dict = {
         'page_title': "View lecture"
+        ,'course_name': lecture.course.name
         ,'lecture': lecture
         ,'next_lecture': lecture.order+1
         ,'previous_lecture': lecture.order-1
